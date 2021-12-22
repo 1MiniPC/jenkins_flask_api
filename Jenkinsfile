@@ -7,6 +7,8 @@ pipeline {
           steps {
             sh '''
             curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            find / -name 'get-pip.py'
+            find / -name 'python3'
             cp get-pip.py /usr/bin/python3/
             python3 /usr/bin/python3/get-pip.py
             pip3 --version
