@@ -8,7 +8,7 @@ pipeline {
             sh '''
             which python3
             echo "building the repo"
-            virtualenv venv
+            virtualenv -p /usr/bin/python3 venv
             . venv/bin/activate
             pip install -r requirements.txt
             '''
