@@ -6,7 +6,6 @@ pipeline {
         stage('Build') {
           steps {
             sh '''
-            python3 -m pip install --upgrade pip
             which python3
             echo "building the repo"
             virtualenv venv
