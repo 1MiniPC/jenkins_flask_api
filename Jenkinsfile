@@ -6,12 +6,13 @@ pipeline {
         stage('Build') {
           steps {
             sh '''
-            python3 -m pip install --upgrade pip
-            which python3
+            curl https://bootstrap.pypa.io/get-pip.py -o /usr/bin/python3/get-pip.py
+            python3 /usr/bin/python3/get-pip.py
+            pip3 --version
             echo "building the repo"
             virtualenv -p /usr/bin/python3 venv
             . venv/bin/activate
-            pip install -r requirements.txt
+            pip3 install -r requirements.txt
             '''
           }
         }
