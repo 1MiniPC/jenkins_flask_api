@@ -6,7 +6,8 @@ pipeline {
         stage('Build') {
           steps {
             sh '''
-            curl https://bootstrap.pypa.io/get-pip.py -o /usr/bin/python3/get-pip.py
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            cp get-pip.py /usr/bin/python3/
             python3 /usr/bin/python3/get-pip.py
             pip3 --version
             echo "building the repo"
