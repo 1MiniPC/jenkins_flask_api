@@ -8,9 +8,8 @@ pipeline {
             sh '''
             python3 --version
             echo "building the repo"
-            pip install -r requirements.txt
-            sudo apt-get upgrade
-            sudo apt-get update
+            yum install python3-pip -y
+            pip3 install -r requirements.txt
             '''
           }
         }
