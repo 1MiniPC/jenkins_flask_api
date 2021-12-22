@@ -19,14 +19,17 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'python app.py'
+        sh 'python app.py &'
       }
     }
 
     stage('Deploy')
     {
       steps {
+        sh '''
         echo "deploying the application"
+        curl localhost:5000
+        '''
       }
     }
 
