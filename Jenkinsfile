@@ -4,16 +4,15 @@ pipeline {
     stage('Build') {
       parallel {
         stage('Build') {
+          agent {
+              docker {
+                  image 'python:3-alpine'
+              }
+          }
           steps {
             sh '''
-            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-            cp get-pip.py ~/usr/bin/python3/
-            python3 ~/usr/bin/python3/get-pip.py
-            pip3 --version
-            echo "building the repo"
-            virtualenv -p ~/usr/bin/python3 venv
-            . venv/bin/activate
-            pip3 install -r requirements.txt
+            python --version
+            pip install -r requirements.txt
             '''
           }
         }
