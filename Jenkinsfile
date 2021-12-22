@@ -25,9 +25,9 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            '''
-            sh 'echo "building the repo"'
-            sh 'pip install -r requirements.txt'
+            sh '''
+            echo "building the repo"
+            pip install -r requirements.txt
             '''
           }
         }
